@@ -40,7 +40,8 @@ Array.prototype.binarySearch = function(target) {
 /**
  * Unit-Tests
  */
- var primes = [31, 5, 7, 71, 11, 13, 19, 89, 97, 23, 29, 37, 3, 41, 43, 47, 2, 53, 59, 61, 67,  73, 79, 83, 17];
+
+var primes = [31, 5, 7, 71, 11, 13, 19, 89, 97, 23, 29, 37, 3, 41, 43, 47, 2, 53, 59, 61, 67,  73, 79, 83, 17];
 
 console.assert(primes.binarySearch(-1) === false);
 console.assert(primes.binarySearch(0) === false);
@@ -50,3 +51,32 @@ console.assert(primes.binarySearch(97) === true);
 console.assert(primes.binarySearch(100) === false);
 console.assert(primes.binarySearch(1000000) === false);
 console.assert(primes.binarySearch('string input edge case') === false);
+
+var chineseSurnames = [
+  'Wang', 'Wáng',
+  'Li', 'Lǐ',
+  'Zhang', 'Zhāng',
+  'Liu', 'Liú',
+  'Chen', 'Chén',
+  'Yang', 'Yáng',
+  'Huang', 'Huáng',
+  'Zhao', 'Zhào',
+  'Wu', 'Wú',
+  'Zhou', 'Zhōu',
+  'Xu', 'Xú',
+  'Sun', 'Sūn',
+  'Ma', 'Mǎ',
+  'Zhu', 'Zhū',
+  'Hu', 'Hú',
+  'Guo', 'Guō',
+  'He', 'Hé'
+];
+
+console.assert(chineseSurnames.binarySearch('Hé') === true);
+console.assert(chineseSurnames.binarySearch('Xu') === true);
+console.assert(chineseSurnames.binarySearch('姜晨') === false);
+console.assert(chineseSurnames.binarySearch('Jiang') === false);
+console.assert(chineseSurnames.binarySearch('r@nD0m $+r1ng') === false);
+console.assert(chineseSurnames.binarySearch('') === false);
+console.assert(chineseSurnames.binarySearch(0) === false);
+console.assert(chineseSurnames.binarySearch() === false);
