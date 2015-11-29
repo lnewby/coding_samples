@@ -9,7 +9,7 @@ Array.prototype.binarySearch = function(target) {
   var max = this.length - 1;
 
   // if guard to prevent array out of bounds error or invalid input value.
-  if(max < min) { return false; }
+  if(max <= min) { return false; }
 
   // Make sure array is in sorted order as required for binary search.
   function numberCompare(a, b){ return a-b; }
