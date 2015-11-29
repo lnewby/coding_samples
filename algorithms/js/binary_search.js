@@ -50,6 +50,7 @@ console.assert(primes.binarySearch(2) === true);
 console.assert(primes.binarySearch(97) === true);
 console.assert(primes.binarySearch(100) === false);
 console.assert(primes.binarySearch(1000000) === false);
+console.assert(primes.binarySearch(97.9) === false);
 console.assert(primes.binarySearch('string input edge case') === false);
 
 var chineseSurnames = [
