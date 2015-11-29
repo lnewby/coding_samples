@@ -2,18 +2,26 @@
 
 /**
  * Binary Search:
- * - Enter a value to determine if it is in the array.
+ * - Tail recursive search algorithm
+ * @param: target - item being searched for in array
+ * @return: boolean - item found or not found in array
  */
 Array.prototype.binarySearch = function(target) {
   var min = 0;
   var max = this.length - 1;
 
-  // if guard to prevent array out of bounds error or invalid input value.
-  if(max <= min) { return false; }
+  // If guard to prevent array out of bounds error.
+  if(max < min) { return false; }
 
-  // Make sure array is in sorted order as required for binary search.
+  /**
+   * Number Comparator Method
+   * - comparator function to sort numbers in ascending order
+   * @param: (a, b) - two numeric values to compare
+   * @return: a - b - positive or negative value to determine if a is greater of less than b respectively
+   */
   function numberCompare(a, b){ return a-b; }
 
+  // Make sure array is in sorted order as required for binary search.
   var sortedArray = (typeof this[0] === 'number') ? this.sort(numberCompare) : this.sort();
 
   // Pick the middle element in the array
@@ -33,9 +41,10 @@ Array.prototype.binarySearch = function(target) {
     max = searchIndex - 1;
   }
 
-  // Check the new slice of the array recursively.
+  // Check for target in the new slice of the array recursively.
   return sortedArray.slice(min, max + 1).binarySearch(target);
 }
+
 
 /**
  * Unit-Tests

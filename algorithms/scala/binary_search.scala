@@ -2,20 +2,22 @@ import scala.annotation.tailrec
 // Scala
 
 /**
- * Binary Search:
- * - Enter a numvalue to determine if it is in the array.
- */
+  * Binary Search:
+  * - Tail recursive search algorithm
+  * @param target - item being searched for in array
+  * @return boolean - item found or not found in array
+  */
+
 
 @tailrec
 def binarySearch(List: Array[Int], target: Double): Boolean = {
   var min: Int = 0
   var max: Int = List.length
 
-  // if guard to prevent array out of bounds error or invalid input value.
+  // if guard to prevent array out of bounds error.
   if(max <= min) return false
 
   // Make sure array is in sorted order as required for binary search.
-
   val sortedArray = List.sorted
 
   // Pick the middle element in the array
@@ -27,7 +29,6 @@ def binarySearch(List: Array[Int], target: Double): Boolean = {
 
   // If element picked is < target element set the new min element to one plus the current element picked
   // else set the new max to one less than the current element picked.
-
   if(sortedArray(searchIndex) < target) {
     min = searchIndex + 1
   } else {
