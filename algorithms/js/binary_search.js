@@ -479779,6 +479779,6 @@ var bigData = [
 479680
 ];
 
-console.time('binarySearch - Javascript');
+console.time('Javascript - binary search completed in');
   console.assert(bigData.binarySearch(1000000) === false);
-console.timeEnd('binarySearch - Javascript');
+console.timeEnd('Javascript - binary search completed in');
