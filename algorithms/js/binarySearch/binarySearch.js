@@ -44,7 +44,7 @@ Array.prototype.binarySearch = function(target) {
 
   // Check for target in the new slice of the array recursively.
   return sortedArray.slice(minIndex, maxIndex + 1).binarySearch(target);
-}
+};
 
 
 /**
