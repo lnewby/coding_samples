@@ -7,11 +7,11 @@
  * @return: boolean - item found or not found in array
  */
 Array.prototype.binarySearch = function(target) {
-  var min = 0;
-  var max = this.length - 1;
+  var minIndex = 0;
+  var maxIndex = this.length - 1;
 
   // If guard to prevent array out of bounds error.
-  if(max < min) { return false; }
+  if(maxIndex < minIndex) { return false; }
 
   /**
    * Number Comparator Method
@@ -25,25 +25,26 @@ Array.prototype.binarySearch = function(target) {
   var sortedArray = (typeof this[0] === 'number') ? this.sort(numberCompare) : this.sort();
 
   // Pick the middle element in the array
-  var searchIndex = Math.floor(max / 2);
+  var searchIndex = Math.floor(maxIndex / 2);
   console.log('Array[' + searchIndex + '] = ' + sortedArray[searchIndex]);
 
-  // If element pick is the target element return its location in the array.
+  // BASE CASE:
+  // If element pick is the target element return true, element found.
   if(sortedArray[searchIndex] === target) {
     return true;
   }
 
-  // If element picked is < target element set the new min element to one plus the current element picked
-  // else set the new max to one less than the current element picked.
+  // If element picked is < target element set the new minIndex element to one plus the current element picked
+  // else set the new maxIndex to one less than the current element picked.
   if(sortedArray[searchIndex] < target) {
-    min = searchIndex + 1;
+    minIndex = searchIndex + 1;
   } else {
-    max = searchIndex - 1;
+    maxIndex = searchIndex - 1;
   }
 
   // Check for target in the new slice of the array recursively.
-  return sortedArray.slice(min, max + 1).binarySearch(target);
-}
+  return sortedArray.slice(minIndex, maxIndex + 1).binarySearch(target);
+};
 
 
 /**
