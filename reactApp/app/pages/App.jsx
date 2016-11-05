@@ -10,8 +10,16 @@ export default class App extends React.Component {
     return (
       <div>
         <p>Welcome to the App!</p>
-        <Link to='/about'>About</Link>
-        <Link to='/contact'>Contact</Link>
+        <header>
+          <nav>
+            <Link to='/about'>About</Link>&nbsp;
+            <Link to='/contact'>Contact</Link>
+          </nav>
+        </header>
+        {this.props.children}
+      <footer>
+        <p>My Footer</p>
+      </footer>
       </div>
     );
   }

@@ -1,20 +1,23 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const { Router, Route, hashHistory } = require('react-router');
+const { Router, Route, browserHistory: history, IndexRoute } = require('react-router');
 import App from './pages/App.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 
+const routes = (
+  <Route path='/' component={App}>
+    <IndexRoute component={About} />
+    <Route path='/about' component={About} />
+    <Route path='/contact' component={Contact} />
+  </Route>
+);
+
 const props = {
-  history: hashHistory,
+  routes,
+  history
 };
 
 const target =  document.getElementById('app');
 
-ReactDOM.render((
-  <Router {...props}>
-    <Route path='/' component={App} />
-    <Route path='/about' component={About} />
-    <Route path='/contact' component={Contact} />
-  </Router>
-), target);
+ReactDOM.render(<Router {...props} />, target);
