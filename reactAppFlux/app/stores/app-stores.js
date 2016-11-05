@@ -25,12 +25,11 @@ export const TodoStore = Object.assign({}, EventEmitter.prototype, {
   }
 });
 
-// TODO: register with the dispatcher
 dispatcher.register(action => {
     console.log(`inside cb ${action}`);
   switch (action.actionType) {
     case 'INCREMENT':
-      incrementCount();
+      incrementCount(action.inc);
       TodoStore.emitChange();
       break;
     default:

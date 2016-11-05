@@ -31,9 +31,6 @@ class App extends React.Component {
 
   increment () {
     incrementActions.incrementCount();
-    // this.setState({
-    //   counter: this.state.counter + 1
-    // });
   }
 
   render () {
