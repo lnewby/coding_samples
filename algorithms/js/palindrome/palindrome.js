@@ -26,7 +26,7 @@ String.prototype.isPalindrome = (function () {
   var palindrome = function () {
     var that = this.toLowerCase();
     console.log('sub problem: ' + that);
-    
+
     // Base Case #1
     if(that.length <= 1) {
       return true;
