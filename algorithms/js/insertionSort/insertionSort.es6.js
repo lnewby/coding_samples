@@ -5,7 +5,6 @@ Array.prototype.insertionSort = (function() {
     // TODO: What is the best way to make thie insertion sort algorithm not mutate the
     // original array?
 
-    console.log(that, rightIndex, value);
     let i;
     for(i=rightIndex; i > -1 && that[i] > value; i--) {
         that[i + 1] = that[i];
